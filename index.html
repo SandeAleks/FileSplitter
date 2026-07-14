@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TextFileSplitter</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>TextFileSplitter</h1>
+
+    <div class="section">
+
+        <label>Input File</label>
+
+        <input
+            type="file"
+            id="inputFile"
+            accept=".txt,.log,.csv"
+        >
+
+    </div>
+
+    <div class="section">
+
+        <button id="outputFolderBtn">
+            Select Output Folder
+        </button>
+
+        <span id="outputFolderLabel">
+            No folder selected
+        </span>
+
+    </div>
+
+    <div class="section">
+
+        <label>Maximum Output File Size (MB)</label>
+
+        <input
+            id="maxSize"
+            type="number"
+            value="500"
+            min="1"
+        >
+
+    </div>
+
+    <div class="section">
+
+        <label>Regex Filter (optional)</label>
+
+        <input
+            id="regex"
+            type="text"
+            placeholder="Example: ^[^|]*\|1\|"
+        >
+
+    </div>
+
+    <div class="section">
+
+        <label>
+
+            <input
+                type="radio"
+                name="mode"
+                value="keep"
+                checked
+            >
+
+            Keep matching lines
+
+        </label>
+
+        <label>
+
+            <input
+                type="radio"
+                name="mode"
+                value="remove"
+            >
+
+            Remove matching lines
+
+        </label>
+
+    </div>
+
+    <div class="section">
+
+        <label>Replace Character (optional)</label>
+
+        <input
+            id="replaceFrom"
+            type="text"
+            placeholder="Example: |"
+        >
+
+        <label>Replace With</label>
+
+        <input
+            id="replaceTo"
+            type="text"
+            placeholder="Example: ,"
+        >
+
+    </div>
+
+    <div class="section">
+
+        <label>Input File Encoding</label>
+
+        <select id="encoding">
+            <option value="windows-1252" selected>
+                Windows-1252 (ANSI)
+            </option>
+            <option value="ascii">ASCII</option>
+        </select>
+
+    </div>
+
+    <div class="section">
+
+        <button id="startBtn">
+            Split File
+        </button>
+
+        <button id="cancelBtn" disabled>
+            Cancel
+        </button>
+
+    </div>
+
+    <div class="section">
+
+        <progress
+            id="progress"
+            value="0"
+            max="100">
+        </progress>
+
+        <div id="status">
+
+            Waiting...
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="splitter.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
