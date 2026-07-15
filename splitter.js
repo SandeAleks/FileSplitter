@@ -77,8 +77,8 @@ class FileSplitter {
 
     async createNewFile() {
 
-        const name =
-            `part_${String(this.fileIndex).padStart(4, "0")}.txt`;
+        const name = this.file.name.replace(/\.[^/.]+$/, "") +
+            `_chunk_${String(this.fileIndex).padStart(4, "0")}.txt`;
 
         this.currentHandle =
             await this.outputDirectory.getFileHandle(name, {
